@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import ImageUpload from "./components/ImageUpload";
+import ImageView from "./components/ImageView";
+import ProfessionalButton from "./components/ProfessionalButton";
+import GeneratedImage from "./components/GeneratedImage";
+import "./App.css";
 
 function App() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [generatedImage, setGeneratedImage] = useState(null);
+
+  const handleImageChange = (imageData) => {
+    setSelectedImage(imageData);
+    setGeneratedImage(null); // Reset the generated image when the user selects a new image
+  };
+
+  const handleGeneratedImage = (generatedImageURL) => {
+    setGeneratedImage(generatedImageURL);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <main className="main-container">
+        <section className="left-section">
+          <ImageView selectedImage={selectedImage} />
+          <ImageUpload onImageChange={handleImageChange} />
+          <ProfessionalButton onGeneratedImage={handleGeneratedImage} selectedImage={selectedImage} />
+        </section>
+        <section className="right-section">
+          <GeneratedImage generatedImage={generatedImage} />
+        </section>
+      </main>
     </div>
   );
 }

@@ -2,37 +2,80 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  background-color: #F4F2DE;
+  color: black;
+  padding: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.left-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.right-section {
+  flex: 1;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  width: 60%;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  color: brown;
+}
+
+.dropzone.active {
+  border-color: #007bff;
+}
+
+.dropzone p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 10px;
+}
+
+/* ... Existing CSS styles ... */
+
+.image-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 400px;
+  margin-bottom: 1rem;
+}
+
+.image-container button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image-container button:hover {
+  background-color: #0056b3;
 }
